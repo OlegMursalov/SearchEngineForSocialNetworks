@@ -17,3 +17,9 @@ c:\users\олег\documents\visual studio 2015\Projects\SearchEngineForSocialNet
 c:\users\олег\documents\visual studio 2015\Projects\SearchEngineForSocialNetworks\SearchEngineForSocialNetworks\obj\Debug\SearchEngineForSocialNetworks.csproj.GenerateResource.Cache
 c:\users\олег\documents\visual studio 2015\Projects\SearchEngineForSocialNetworks\SearchEngineForSocialNetworks\obj\Debug\SearchEngineForSocialNetworks.exe
 c:\users\олег\documents\visual studio 2015\Projects\SearchEngineForSocialNetworks\SearchEngineForSocialNetworks\obj\Debug\SearchEngineForSocialNetworks.pdb
+c:\users\олег\documents\visual studio 2015\Projects\SearchEngineForSocialNetworks\SearchEngineForSocialNetworks\obj\Debug\SearchEngineForSocialNetworks.csprojResolveAssemblyReference.cache
+c:\users\олег\documents\visual studio 2015\Projects\SearchEngineForSocialNetworks\SearchEngineForSocialNetworks\bin\Debug\Newtonsoft.Json.dll
+c:\users\олег\documents\visual studio 2015\Projects\SearchEngineForSocialNetworks\SearchEngineForSocialNetworks\bin\Debug\Newtonsoft.Json.xml
+c:\users\олег\documents\visual studio 2015\Projects\SearchEngineForSocialNetworks\SearchEngineForSocialNetworks\bin\Debug\HtmlAgilityPack.dll
+c:\users\олег\documents\visual studio 2015\Projects\SearchEngineForSocialNetworks\SearchEngineForSocialNetworks\bin\Debug\HtmlAgilityPack.pdb
+c:\users\олег\documents\visual studio 2015\Projects\SearchEngineForSocialNetworks\SearchEngineForSocialNetworks\bin\Debug\HtmlAgilityPack.xml

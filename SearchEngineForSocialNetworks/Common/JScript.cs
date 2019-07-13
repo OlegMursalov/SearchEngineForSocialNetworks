@@ -5,8 +5,11 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Collections.ObjectModel;
+using System.Collections;
+using Newtonsoft.Json;
 
-namespace SearchEngineForSocialNetworks.Common
+namespace SearchEngineForSocialNetworks
 {
     public class JScript
     {
@@ -34,6 +37,26 @@ namespace SearchEngineForSocialNetworks.Common
                 { "query", email }
             });
             javaScriptExecutor.ExecuteScript(command);
+        }
+
+        public List<FacebookUser> ParseInformationAboutUser()
+        {
+            var facebookUsers = new List<FacebookUser>();
+            var command = GetCommandByResourceName("ParseInformationAboutUser.js", null);
+            javaScriptExecutor.ExecuteScript(command);
+            var result = javaScriptExecutor.ExecuteScript("return JSON.stringify(window.informationAboutUsers);") as string;
+            if (!string.IsNullOrEmpty(result))
+            {
+                var usersOfFacebook = JsonConvert.DeserializeObject<List<FacebookUser>>(result);
+                if (usersOfFacebook != null)
+                {
+                    foreach (var user in usersOfFacebook)
+                    {
+                        facebookUsers.Add(user);
+                    }
+                }
+            }
+            return facebookUsers;
         }
 
         private string GetCommandByResourceName(string fileName, Dictionary<string, string> variables)

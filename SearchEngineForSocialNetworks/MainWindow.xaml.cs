@@ -1,8 +1,12 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using SearchEngineForSocialNetworks.Common;
 using System.Configuration;
+using System.IO;
+using System.Net;
 using System.Windows;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System;
 
 namespace SearchEngineForSocialNetworks
 {
@@ -17,12 +21,35 @@ namespace SearchEngineForSocialNetworks
         public MainWindow()
         {
             InitializeComponent();
-            var driver = new ChromeDriver();
+            /*var driver = new ChromeDriver();
             this.Driver = driver;
-            this.JScript = new JScript(driver);
+            this.JScript = new JScript(driver);*/
         }
 
-        private async void Search_Click(object sender, RoutedEventArgs e)
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.Filter = "Text documents (*.json)|*.json";
+            var result = dialog.ShowDialog();
+            if (result.HasValue && result.Value)
+            {
+                string filename = dialog.FileName;
+                /*var text = Common.GetTextFromEmbededResource("emails.json");*/
+                var text = File.ReadAllText(filename);
+                var emailList = JsonConvert.DeserializeObject<EmailList>(text);
+                var searcher = new InstagramSearcher(emailList.Emails);
+                var instagramUsers = searcher.Process();
+                if (instagramUsers.Count > 0)
+                {
+                    foreach (var user in instagramUsers)
+                    {
+                        MainDataGrid.Items.Add(user);
+                    }
+                }
+            }
+        }
+
+        /*private void Search_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(EmailAddress.Text))
             {
@@ -31,10 +58,10 @@ namespace SearchEngineForSocialNetworks
                 var passOfFacebook = ConfigurationManager.AppSettings["PassOfFacebook"];
                 if (!string.IsNullOrEmpty(loginOfFacebook) && !string.IsNullOrEmpty(passOfFacebook))
                 {
-
                     Driver.Navigate().GoToUrl("https://www.facebook.com/");
                     JScript.AuthorizationFacebookCommand(loginOfFacebook, passOfFacebook);
                     JScript.SearchUsersInFacebookByEmail(email);
+                    var facebookUsers = JScript.ParseInformationAboutUser();
                 }
                 else
                 {
@@ -45,6 +72,6 @@ namespace SearchEngineForSocialNetworks
             {
                 MessageBox.Show("Please, enter email address");
             }
-        }
+        }*/
     }
 }

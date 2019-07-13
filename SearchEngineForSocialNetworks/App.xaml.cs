@@ -17,10 +17,10 @@ namespace SearchEngineForSocialNetworks
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
-            if (mainWindow != null)
+            /*if (mainWindow != null)
             {
                 mainWindow.Driver.Dispose();
-            }
+            }*/
         }
     }
 }

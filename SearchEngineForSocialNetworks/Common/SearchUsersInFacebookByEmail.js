@@ -1,8 +1,1 @@
-﻿var nodeList = document.getElementsByName('q');
-if (nodeList && nodeList.length > 0) {
-    nodeList[0].value = "{{query}}";
-    nodeList = document.querySelectorAll('form[method="get"]');
-    if (nodeList && nodeList.length > 0) {
-        nodeList[0].submit();
-    }
-}
+﻿document.location.href = "https://www.facebook.com/search/people/?q={{query}}&epa=SERP_TAB";
