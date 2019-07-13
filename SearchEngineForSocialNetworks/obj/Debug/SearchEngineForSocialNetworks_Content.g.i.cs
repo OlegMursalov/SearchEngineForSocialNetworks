@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("common/authorizationonfacebook.js")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("common/searchusersinfacebookbyemail.js")]
 
 

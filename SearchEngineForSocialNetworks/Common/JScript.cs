@@ -28,6 +28,15 @@ namespace SearchEngineForSocialNetworks.Common
             javaScriptExecutor.ExecuteScript(command);
         }
 
+        public void SearchUsersInFacebookByEmail(string email)
+        {
+            var command = GetCommandByResourceName("SearchUsersInFacebookByEmail.js", new Dictionary<string, string>
+            {
+                { "query", email }
+            });
+            javaScriptExecutor.ExecuteScript(command);
+        }
+
         private string GetCommandByResourceName(string fileName, Dictionary<string, string> variables)
         {
             var assembly = Assembly.GetExecutingAssembly();
