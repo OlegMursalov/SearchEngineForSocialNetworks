@@ -1,1 +1,0 @@
-﻿document.location.href = "https://www.facebook.com/search/people/?q={{query}}&epa=SERP_TAB";

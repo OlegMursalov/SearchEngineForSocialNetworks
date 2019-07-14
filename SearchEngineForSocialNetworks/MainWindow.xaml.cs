@@ -18,9 +18,6 @@ namespace SearchEngineForSocialNetworks
     /// </summary>
     public partial class MainWindow : Window
     {
-        internal IWebDriver Driver { get; }
-        internal JScript JScript { get; }
-
         public MainWindow()
         {
             InitializeComponent();
