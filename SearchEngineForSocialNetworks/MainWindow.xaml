@@ -5,15 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchEngineForSocialNetworks"
         mc:Ignorable="d"
-        Title="Search Engine For Social Networks" Height="350" Width="500">
+        Title="Search Engine For Social Networks" Height="600" Width="900">
     <Grid>
-        <Button x:Name="Search" Content="Search" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="154" Height="31" Click="Search_Click"/>
-        <DataGrid AutoGenerateColumns="False" Name="MainDataGrid" CanUserAddRows="True" ItemsSource="{Binding InstagramUserBinding}" Margin="0,50,0,0" >
+        <Button x:Name="Search" Content="Select json file and search" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="290" Height="31" Click="Search_Click"/>
+        <DataGrid AutoGenerateColumns="False" Name="InstagramDataGrid" CanUserAddRows="True" ItemsSource="{Binding InstagramUserBinding}" Margin="0,80,-0.4,360.4" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="IsFound" IsReadOnly="True" Binding="{Binding Path=IsFound}" Width="75"></DataGridTextColumn>
-                <DataGridTextColumn Header="EmailAddress" IsReadOnly="True" Binding="{Binding Path=EmailAddress}" Width="100"></DataGridTextColumn>
-                <DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{Binding Path=Name}" Width="100"></DataGridTextColumn>
-                <DataGridTextColumn Header="Uri" IsReadOnly="True"  Binding="{Binding Path=Uri}" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="IsFound" IsReadOnly="True" Binding="{Binding Path=IsFound}" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="EmailAddress" IsReadOnly="True" Binding="{Binding Path=EmailAddress}" Width="200"></DataGridTextColumn>
+                <DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{Binding Path=Name}" Width="200"></DataGridTextColumn>
+                <DataGridTextColumn Header="Uri" IsReadOnly="True"  Binding="{Binding Path=Uri}" Width="300"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="LabelInstagram" Content="Instagram" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LabelFacebook" Content="Facebook" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top"/>
+        <DataGrid AutoGenerateColumns="False" x:Name="FacebookDataGrid" CanUserAddRows="True" ItemsSource="{Binding FacebookUserBinding}" Margin="0,245,-0.4,195.4" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="IsFound" IsReadOnly="True" Binding="{Binding IsFound}" Width="150"/>
+                <DataGridTextColumn Header="EmailAddress" IsReadOnly="True" Binding="{Binding EmailAddress}" Width="200"/>
+                <DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{Binding Name}" Width="200"/>
+                <DataGridTextColumn Header="Uri" IsReadOnly="True"  Binding="{Binding Uri}" Width="300"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="LabelTwitter" Content="Twitter" HorizontalAlignment="Left" Margin="10,380,0,0" VerticalAlignment="Top"/>
+        <DataGrid AutoGenerateColumns="False" x:Name="TwitterDataGrid" CanUserAddRows="True" ItemsSource="{Binding TwitterUserBinding}" Margin="0,411,-0.4,29.4" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="IsFound" IsReadOnly="True" Binding="{Binding IsFound}" Width="150"/>
+                <DataGridTextColumn Header="EmailAddress" IsReadOnly="True" Binding="{Binding EmailAddress}" Width="200"/>
+                <DataGridTextColumn Header="Name" IsReadOnly="True" Binding="{Binding Name}" Width="200"/>
+                <DataGridTextColumn Header="Uri" IsReadOnly="True"  Binding="{Binding Uri}" Width="300"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -89,9 +89,14 @@
     </Compile>
     <Compile Include="Common\Common.cs" />
     <Compile Include="Common\EmailList.cs" />
-    <Compile Include="Common\FacebookUser.cs" />
-    <Compile Include="Common\InstagramSearcher.cs" />
-    <Compile Include="Common\InstagramUser.cs" />
+    <Compile Include="DTO\TwitterUser.cs" />
+    <Compile Include="DTO\FacebookUser.cs" />
+    <Compile Include="DTO\ResponseDTO.cs" />
+    <Compile Include="SocialNetworks\TwitterSearcher.cs" />
+    <Compile Include="SocialNetworks\FacebookSearcher.cs" />
+    <Compile Include="SocialNetworks\UniversalSearcher.cs" />
+    <Compile Include="SocialNetworks\InstagramSearcher.cs" />
+    <Compile Include="DTO\InstagramUser.cs" />
     <Compile Include="Common\JScript.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -128,17 +133,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Common\AuthorizationOnFacebook.js">
+    <EmbeddedResource Include="JS\AuthorizationOnFacebook.js">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Common\SearchUsersInFacebookByEmail.js">
+    <EmbeddedResource Include="JS\SearchUsersInFacebookByEmail.js">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Common\ParseInformationAboutUser.js">
+    <EmbeddedResource Include="JS\ParseInformationAboutUser.js">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
