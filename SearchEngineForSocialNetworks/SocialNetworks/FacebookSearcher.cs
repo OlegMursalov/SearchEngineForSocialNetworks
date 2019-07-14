@@ -1,6 +1,9 @@
 ﻿using Newtonsoft.Json;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace SearchEngineForSocialNetworks
 {
@@ -21,22 +24,29 @@ namespace SearchEngineForSocialNetworks
         public List<FacebookUser> Process()
         {
             var list = new List<FacebookUser>();
-            var responses = base.GetResponsesByEmails();
-            foreach (var response in responses)
+            using (IWebDriver driver = new ChromeDriver())
             {
-                if (response.Document != null)
+                foreach (var email in emails)
                 {
-                    var document = response.Document;
-                    var accountUri = response.AccountUri;
-                    var email = response.Email;
-                    var h1Tags = document.DocumentNode.Descendants("h1");
-                    if (h1Tags != null && h1Tags.Count() > 0)
+                    var i = email.IndexOf("@");
+                    var accountUri = $"{Url}/{email.Substring(0, i)}";
+                    driver.Navigate().GoToUrl(accountUri);
+                    var javaScriptExecutor = (IJavaScriptExecutor)driver;
+                    var sb = new StringBuilder();
+                    sb.AppendLine("var collection = document.getElementsByClassName('_2nlw _2nlv');");
+                    sb.AppendLine("if (collection && collection.length > 0) {");
+                    sb.AppendLine("    return collection[0].text;");
+                    sb.AppendLine("} else {");
+                    sb.AppendLine("    return null;");
+                    sb.AppendLine("}");
+                    var result = (string)javaScriptExecutor.ExecuteScript(sb.ToString());
+                    if (!string.IsNullOrEmpty(result))
                     {
-                        var h1 = h1Tags.FirstOrDefault(x => x.HasClass("_2nlv"));
-                        if (h1 != null)
-                        {
-                            list.Add(new FacebookUser { IsFound = true, EmailAddress = response.Email, Name = h1.InnerText, Uri = response.AccountUri });
-                        }
+                        list.Add(new FacebookUser { Name = result, IsFound = true, EmailAddress = email, Uri = accountUri });
+                    }
+                    else
+                    {
+                        list.Add(new FacebookUser { IsFound = false, EmailAddress = email });
                     }
                 }
             }

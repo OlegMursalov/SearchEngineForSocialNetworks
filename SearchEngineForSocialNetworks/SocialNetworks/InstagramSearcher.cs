@@ -40,11 +40,17 @@ namespace SearchEngineForSocialNetworks
                                 {
                                     if (attr.Name == "type" && attr.Value == "application/ld+json")
                                     {
-                                        var user = JsonConvert.DeserializeObject<InstagramUser>(script.InnerText);
-                                        user.IsFound = true;
-                                        user.Uri = accountUri;
-                                        user.EmailAddress = email;
-                                        list.Add(user);
+                                        try
+                                        {
+                                            var user = JsonConvert.DeserializeObject<InstagramUser>(script.InnerText);
+                                            user.IsFound = true;
+                                            user.Uri = accountUri;
+                                            user.EmailAddress = email;
+                                            list.Add(user);
+                                        }
+                                        catch (JsonSerializationException)
+                                        {
+                                        }
                                     }
                                 }
                             }
