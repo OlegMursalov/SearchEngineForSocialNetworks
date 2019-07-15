@@ -22,3 +22,4 @@ C:\Users\Олег\documents\visual studio 2015\Projects\SearchEngineForSocialNet
 C:\Users\Олег\documents\visual studio 2015\Projects\SearchEngineForSocialNetworks\SearchEngineForSocialNetworks\obj\Debug\SearchEngineForSocialNetworks.csproj.GenerateResource.Cache
 C:\Users\Олег\documents\visual studio 2015\Projects\SearchEngineForSocialNetworks\SearchEngineForSocialNetworks\obj\Debug\SearchEngineForSocialNetworks.exe
 C:\Users\Олег\documents\visual studio 2015\Projects\SearchEngineForSocialNetworks\SearchEngineForSocialNetworks\obj\Debug\SearchEngineForSocialNetworks.pdb
+C:\Users\Олег\documents\visual studio 2015\Projects\SearchEngineForSocialNetworks\SearchEngineForSocialNetworks\obj\Debug\SearchEngineForSocialNetworks.csprojResolveAssemblyReference.cache
